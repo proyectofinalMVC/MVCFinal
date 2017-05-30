@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Your Website</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="../js/js.js"></script>
@@ -18,16 +20,16 @@
 <div id="map"></div>
 <div id="banner">
     <div id="setPickUp">
-        <form action="/action_page.php">
+        <form th:object="${carrera}" th:action="@{carrera/guardar}" method="post">
             <div id="carLogo">
-                <img src="https://cdn3.iconfinder.com/data/icons/car-icons-front-views/480/Sports_Car_Front_View-512.png">
+                <img src="https://cdn3.iconfinder.com/data/icons/car-icons-front-views/480/Sports_Car_Front_View-512.png"/>
             </div>
 
-            Origen: <input type="text" name="fname"><br>
-            <br>
-            Destino: <input type="text" name="lname"><br>
-            <br>
-            <input type="submit" value="Submit">
+            Origen: <input type="text" name="fname" th:field="*{origen}"/><br/>
+            <br/>
+            Destino: <input type="text" name="lname" th:field="*{destino}"/><br/>
+            <br/>
+            <input type="submit" value="Submit"/>
         </form>
     </div>
 </div>
